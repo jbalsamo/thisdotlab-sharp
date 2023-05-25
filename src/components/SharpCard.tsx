@@ -20,7 +20,9 @@ const sharpIsCute = (sharpId) => {
 const SharpCard = ({ sharp }) => {
   return (
     <div class="card mb-3">
-      <div class="card-header">Type is {sharp.project_output_type}</div>
+      <div class="card-header bg-primary text-white">
+        Type is {sharp.project_output_type}
+      </div>
       <div class="card-body">
         <p>
           <b>Title:</b> {sharp.project_title}

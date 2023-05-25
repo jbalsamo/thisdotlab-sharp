@@ -12,7 +12,6 @@ createEffect(async () => {
   );
   const json = await res.json();
   setSharps(json);
-  console.log(json);
 });
 
 function App() {
