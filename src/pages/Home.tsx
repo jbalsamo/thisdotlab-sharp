@@ -36,6 +36,6 @@ const Home = () => {
   );
 };
 
-export { offset, limit, setOffset, setLimit };
+export { offset, limit, setOffset, setLimit, page, pages, setPage, total };
 
 export default Home;
