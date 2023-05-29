@@ -1,5 +1,5 @@
 import { Col, Container, Form, Pagination, Row } from "solid-bootstrap";
-import { For, Show, createEffect } from "solid-js";
+import { For, Show } from "solid-js";
 import {
   limit,
   offset,
@@ -12,7 +12,7 @@ import {
 } from "../pages/Home";
 import styles from "./Pagination.module.css";
 
-const MyPagination = ({ item }) => {
+const MyPagination = () => {
   const prev = () => {
     if (page() > 1) {
       setOffset(offset() - limit());
@@ -53,7 +53,7 @@ const MyPagination = ({ item }) => {
       <Container>
         <Row>
           <Col class={styles.pagination} md={8}>
-            <Pagination size="md">
+            <Pagination size="sm">
               <Pagination.First
                 onclick={() => {
                   first();
@@ -70,16 +70,11 @@ const MyPagination = ({ item }) => {
               <For each={currentPages()}>
                 {(page) => (
                   <>
+                    {/* Show the active page which is not clickable */}
                     <Show when={isActive(page)}>
-                      <Pagination.Item
-                        active
-                        onclick={() => {
-                          changePage(page);
-                        }}
-                      >
-                        {page}
-                      </Pagination.Item>
+                      <Pagination.Item active>{page}</Pagination.Item>
                     </Show>
+                    {/* show a n "inactive" clickable page link */}
                     <Show when={!isActive(page)}>
                       <Pagination.Item
                         onclick={() => {
