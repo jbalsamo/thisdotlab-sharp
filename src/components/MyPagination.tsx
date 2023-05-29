@@ -47,12 +47,13 @@ const MyPagination = ({ item }) => {
     setOffset((page - 1) * limit());
     setPage(page);
   };
+  const isActive = (cpage: number) => page() == cpage;
   return (
     <>
       <Container>
         <Row>
           <Col class={styles.pagination} md={8}>
-            <Pagination size="lg">
+            <Pagination size="md">
               <Pagination.First
                 onclick={() => {
                   first();
@@ -68,13 +69,27 @@ const MyPagination = ({ item }) => {
               </Show>
               <For each={currentPages()}>
                 {(page) => (
-                  <Pagination.Item
-                    onclick={() => {
-                      changePage(page);
-                    }}
-                  >
-                    {page}
-                  </Pagination.Item>
+                  <>
+                    <Show when={isActive(page)}>
+                      <Pagination.Item
+                        active
+                        onclick={() => {
+                          changePage(page);
+                        }}
+                      >
+                        {page}
+                      </Pagination.Item>
+                    </Show>
+                    <Show when={!isActive(page)}>
+                      <Pagination.Item
+                        onclick={() => {
+                          changePage(page);
+                        }}
+                      >
+                        {page}
+                      </Pagination.Item>
+                    </Show>
+                  </>
                 )}
               </For>
               <Show when={page() < pages().length - 2}>
