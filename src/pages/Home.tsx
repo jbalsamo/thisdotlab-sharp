@@ -24,13 +24,13 @@ const Home = () => {
     <div>
       <h2>List of SHARP Projects</h2>
       <div class={styles.pagination}>
-        <MyPagination item={sharps} />
+        <MyPagination />
       </div>
       <For each={sharps().slice(offset(), offset() + limit())}>
         {(sharp) => <SharpCard sharp={sharp} />}
       </For>
       <div class={styles.pagination}>
-        <MyPagination item={sharps} />
+        <MyPagination />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ createEffect(async () => {
 function App() {
   return (
     <div class="container">
-      <Header />
+      <Header class="header" />
       <Routes>
         <Route element={<Home />} end path="/" />
         <Route element={<LikedSharps />} path="/LikedSharps" />

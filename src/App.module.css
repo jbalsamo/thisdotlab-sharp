@@ -12,6 +12,18 @@
   pointer-events: none;
 }
 
+NavLink {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
 .header {
   background-color: #282c34;
   min-height: 100vh;
